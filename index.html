@@ -84,22 +84,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
 }
 
-/* EFEITO PULSANTE SUAVE */
-@keyframes pulseWhatsapp {
-    0% {
-        box-shadow: 0 0 0 0 rgba(150, 41, 52, 0.5);
-    }
-    70% {
-        box-shadow: 0 0 0 10px rgba(150, 41, 52, 0);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(150, 41, 52, 0);
-    }
-}
-
-.woocommerce ul.products li.product a.botao-whatsapp {
-    animation: pulseWhatsapp 2.5s infinite;
-}
+/* EFEITO PULSANTE REMOVIDO — usamos hover elegante no override */
 
 /* ===== RESPONSIVIDADE - GRID DE PRODUTOS ===== */
 
@@ -464,6 +449,194 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     margin-top: 1px;
 }
 
+/* ===== OVERRIDE VISUAL — PROFISSIONALIZAR O SITE ===== */
+
+/* BOTÃO "VER PRODUTO" NOS CARDS */
+.woocommerce ul.products li.product a.botao-whatsapp {
+    background: linear-gradient(135deg, #962934 0%, #7a1f28 100%) !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 8px rgba(150,41,52,0.25) !important;
+    transition: all 0.2s ease !important;
+    animation: none !important;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+.woocommerce ul.products li.product a.botao-whatsapp:hover {
+    background: linear-gradient(135deg, #b13040 0%, #962934 100%) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(150,41,52,0.35) !important;
+}
+
+/* CARDS DE PRODUTO - MAIS PREMIUM */
+.woocommerce ul.products li.product {
+    background: #fff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.06) !important;
+    transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+    border: 1px solid #f0f0f0 !important;
+}
+.woocommerce ul.products li.product:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* TÍTULO DO PRODUTO */
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+    font-weight: 600 !important;
+    color: #1a1a1a !important;
+    line-height: 1.4 !important;
+}
+
+/* PREÇO - MAIS DESTAQUE */
+.woocommerce ul.products li.product .price {
+    margin: 8px 0 !important;
+}
+.woocommerce ul.products li.product .price ins {
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    color: #962934 !important;
+}
+.woocommerce ul.products li.product .price del {
+    color: #aaa !important;
+    font-size: 0.85em !important;
+}
+
+/* BADGE "OFERTA" - MAIS CLEAN */
+.woocommerce ul.products li.product .onsale {
+    background: #962934 !important;
+    color: #fff !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+    border-radius: 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    box-shadow: 0 2px 6px rgba(150,41,52,0.3) !important;
+}
+
+/* SEÇÃO DE ÍCONES (Produto Original, Pedidos, Envios, Seguro) */
+.elementor-element-afdce24 {
+    background: #fff !important;
+    border-radius: 12px !important;
+    padding: 20px 24px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04) !important;
+    border: 1px solid #f0f0f0 !important;
+}
+.elementor-element-afdce24 .elementor-icon-box-wrapper {
+    gap: 12px;
+}
+.elementor-element-afdce24 .elementor-icon {
+    background: rgba(150,41,52,0.06) !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.elementor-element-afdce24 .elementor-icon svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: #962934 !important;
+}
+.elementor-element-afdce24 .elementor-icon-box-title span {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1a1a1a !important;
+}
+.elementor-element-afdce24 .elementor-icon-box-description {
+    font-size: 12px !important;
+    color: #666 !important;
+    line-height: 1.4 !important;
+}
+
+/* HEADER DO SITE - MAIS LIMPO */
+.elementor-element-245f2ab {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+.elementor-element-bf88268 .elementor-heading-title,
+.elementor-element-5527bd2 .elementor-heading-title,
+.elementor-element-f804621 .elementor-heading-title,
+.elementor-element-1d8aae7 .elementor-heading-title {
+    font-weight: 700 !important;
+    color: #1a1a1a !important;
+    letter-spacing: -0.3px !important;
+}
+
+/* "VER TUDO" LINKS */
+.elementor-element-ea5423a .elementor-heading-title a,
+.elementor-element-898689e .elementor-heading-title a,
+.elementor-element-335a012 .elementor-heading-title a {
+    color: #962934 !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(150,41,52,0.3) !important;
+    padding-bottom: 2px !important;
+    transition: border-color 0.2s !important;
+}
+.elementor-element-ea5423a .elementor-heading-title a:hover,
+.elementor-element-898689e .elementor-heading-title a:hover,
+.elementor-element-335a012 .elementor-heading-title a:hover {
+    border-color: #962934 !important;
+}
+
+/* WHATSAPP FLUTUANTE - MAIS MODERNO */
+.ht-ctc .ctc_s_7_icon_padding {
+    box-shadow: 0 4px 14px rgba(37,211,102,0.4) !important;
+    transition: all 0.3s ease !important;
+}
+.ht-ctc .ctc_s_7_icon_padding:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(37,211,102,0.5) !important;
+}
+
+/* IMAGENS DE CATEGORIA - BORDER RADIUS */
+.elementor-element-9875154 img,
+.elementor-element-74b24e8 img,
+.elementor-element-0213552 img {
+    border-radius: 10px !important;
+    transition: transform 0.2s ease !important;
+}
+.elementor-element-9875154:hover img,
+.elementor-element-74b24e8:hover img,
+.elementor-element-0213552:hover img {
+    transform: scale(1.02) !important;
+}
+
+/* FOOTER LEGAL - MAIS DISCRETO */
+.elementor-element-cb236fd .elementor-heading-title {
+    font-size: 10px !important;
+    color: #999 !important;
+    line-height: 1.5 !important;
+}
+
+/* HORÁRIO DE FUNCIONAMENTO */
+.elementor-element-da9be22 {
+    background: #fafafa !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+}
+
+/* DIVIDERS - MAIS SUAVES */
+.elementor-divider-separator {
+    border-color: #f0f0f0 !important;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 767px) {
     .sr-top-bar { font-size: 11px; padding: 6px 10px; }
@@ -474,6 +647,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
     .sr-notification { left: 10px; right: 10px; max-width: calc(100% - 20px); bottom: 80px; }
     .sr-garantias { margin: 16px 10px; padding: 16px; }
     .sr-garantias-grid { grid-template-columns: 1fr; }
+
+    /* Botões mobile */
+    .woocommerce ul.products li.product a.botao-whatsapp {
+        padding: 10px 12px !important;
+        font-size: 11px !important;
+        border-radius: 6px !important;
+    }
+
+    /* Cards mobile */
+    .woocommerce ul.products li.product {
+        border-radius: 8px !important;
+    }
+
+    /* Icon section mobile */
+    .elementor-element-afdce24 {
+        padding: 14px 12px !important;
+        border-radius: 8px !important;
+    }
+    .elementor-element-afdce24 .elementor-icon {
+        padding: 8px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .woocommerce ul.products li.product a.botao-whatsapp {
+        padding: 8px 8px !important;
+        font-size: 10px !important;
+    }
 }
 </style>
 </head>
