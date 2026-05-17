@@ -182,9 +182,58 @@
             font-weight: 500;
         }
     </style>
+<style>
+.sr-top-bar-produto {
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    color: #fff;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 12px;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.3px;
+}
+.sr-top-bar-produto strong { color: #25d366; }
+.sr-urgency {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #e65100;
+    font-weight: 500;
+    text-align: center;
+    animation: pulse-urgency 2s infinite;
+}
+@keyframes pulse-urgency {
+    0%, 100% { border-color: #ffe082; }
+    50% { border-color: #ff9800; }
+}
+.sr-viewers {
+    font-size: 12px;
+    color: #666;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.sr-viewers .dot {
+    width: 8px; height: 8px;
+    background: #25d366;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+</style>
 </head>
 <body>
-    <div class="header">
+    <div class="sr-top-bar-produto">
+    <strong>Centros de distribuição por todo o Brasil</strong> — Entrega rápida na sua região
+</div>
+<div class="header">
         <a href="../index.html">
             <img src="../santaritaprodutosonline.com/wp-content/uploads/2026/04/logo-farm.png" alt="Farmacia Santa Rita">
         </a>
@@ -222,7 +271,9 @@
                         Pagamento 100% seguro
                     </li>
                 </ul>
-                <a href="https://wa.me/5514981724565?text=Ola%21%20Gostaria%20de%20saber%20mais%20sobre%3A%203%20caixas%20Lipoless%205mg/0%2C5ml%20Seringas" target="_blank" class="btn-whatsapp">
+                <div class="sr-urgency">⚡ Últimas unidades com este preço — oferta por tempo limitado</div>
+<div class="sr-viewers"><span class="dot"></span> <span id="sr-viewers-count">7</span> pessoas visualizando agora</div>
+<a href="https://wa.me/5514981724565?text=Ola%21%20Gostaria%20de%20saber%20mais%20sobre%3A%203%20caixas%20Lipoless%205mg/0%2C5ml%20Seringas" target="_blank" class="btn-whatsapp">
                     <svg viewBox="0 0 509 512"><path d="M259.253,0 C121.503,0 9.837,111.663 9.837,249.413 C9.837,296.53 22.914,340.597 45.625,378.191 L0.613,512.002 L138.7,467.788 C174.43,487.549 215.523,498.811 259.253,498.811 C396.994,498.811 508.66,387.155 508.66,249.415 C508.662,111.663 396.997,0 259.253,0 Z"/></svg>
                     Comprar pelo WhatsApp
                 </a>
@@ -248,5 +299,17 @@
             &larr; Voltar para a loja
         </a>
     </div>
+<script>
+(function(){
+    var el = document.getElementById("sr-viewers-count");
+    if(!el) return;
+    setInterval(function(){
+        var n = parseInt(el.textContent);
+        var delta = Math.random() > 0.5 ? 1 : -1;
+        n = Math.max(3, Math.min(14, n + delta));
+        el.textContent = n;
+    }, 4000);
+})();
+</script>
 </body>
 </html>

@@ -278,8 +278,240 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
         font-size: 10px;
     }
 }		</style>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"></head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<style id="santa-rita-conversao">
+/* ===== BARRA DE TOPO - CENTRO DE DISTRIBUIÇÃO ===== */
+.sr-top-bar {
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+    color: #fff;
+    text-align: center;
+    padding: 8px 16px;
+    font-size: 13px;
+    font-family: 'Red Hat Text', sans-serif;
+    letter-spacing: 0.3px;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+}
+.sr-top-bar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 200%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+    animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(50%); }
+}
+.sr-top-bar-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    position: relative;
+}
+.sr-top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.sr-top-bar-item svg {
+    width: 14px; height: 14px;
+    fill: #25d366;
+    flex-shrink: 0;
+}
+.sr-top-bar-item strong {
+    color: #25d366;
+}
+.sr-top-bar-separator {
+    width: 4px; height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+
+/* ===== FAIXA DE PROVA SOCIAL ===== */
+.sr-social-proof {
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+    padding: 10px 16px;
+    text-align: center;
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 13px;
+    color: #333;
+}
+.sr-social-proof-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.sr-proof-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.sr-proof-item .sr-dot {
+    width: 8px; height: 8px;
+    background: #25d366;
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+}
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+}
+
+/* ===== NOTIFICAÇÃO FLUTUANTE (PROVA SOCIAL) ===== */
+.sr-notification {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 99999998;
+    max-width: 300px;
+    transform: translateX(-120%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Red Hat Text', sans-serif;
+    font-size: 12px;
+    border-left: 3px solid #25d366;
+}
+.sr-notification.show {
+    transform: translateX(0);
+}
+.sr-notification-icon {
+    width: 36px; height: 36px;
+    background: #e8f5e9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.sr-notification-icon svg {
+    width: 18px; height: 18px;
+    fill: #25d366;
+}
+.sr-notification-text strong {
+    display: block;
+    color: #1a1a1a;
+    font-size: 13px;
+}
+.sr-notification-text span {
+    color: #666;
+    font-size: 11px;
+}
+
+/* ===== BADGE DE ESTOQUE LIMITADO ===== */
+.sr-stock-badge {
+    display: inline-block;
+    background: #fff3e0;
+    color: #e65100;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 4px;
+    font-family: 'Red Hat Text', sans-serif;
+    animation: blink-stock 3s infinite;
+}
+@keyframes blink-stock {
+    0%, 90%, 100% { opacity: 1; }
+    95% { opacity: 0.5; }
+}
+
+/* ===== SEÇÃO DE GARANTIAS (abaixo dos produtos) ===== */
+.sr-garantias {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 20px auto;
+    max-width: 900px;
+    font-family: 'Red Hat Text', sans-serif;
+}
+.sr-garantias h3 {
+    text-align: center;
+    color: #166534;
+    margin: 0 0 16px 0;
+    font-size: 16px;
+}
+.sr-garantias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+}
+.sr-garantia-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #333;
+}
+.sr-garantia-item svg {
+    width: 18px; height: 18px;
+    fill: #16a34a;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 767px) {
+    .sr-top-bar { font-size: 11px; padding: 6px 10px; }
+    .sr-top-bar-content { gap: 8px; }
+    .sr-top-bar-separator { display: none; }
+    .sr-social-proof { font-size: 11px; padding: 8px 10px; }
+    .sr-social-proof-inner { gap: 10px; }
+    .sr-notification { left: 10px; right: 10px; max-width: calc(100% - 20px); bottom: 80px; }
+    .sr-garantias { margin: 16px 10px; padding: 16px; }
+    .sr-garantias-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
 <body data-rsssl="1" class="home wp-singular page-template page-template-elementor_canvas page page-id-10 wp-embed-responsive wp-theme-hello-elementor theme-hello-elementor woocommerce-js hello-elementor-default elementor-default elementor-template-canvas elementor-kit-6 elementor-page elementor-page-10">
+
+<!-- BARRA DE TOPO - CENTRO DE DISTRIBUIÇÃO -->
+<div class="sr-top-bar">
+    <div class="sr-top-bar-content">
+        <div class="sr-top-bar-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span><strong>Centros de distribuição por todo o Brasil</strong> — entrega rápida na sua região</span>
+        </div>
+        <div class="sr-top-bar-separator"></div>
+        <div class="sr-top-bar-item">
+            <svg viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16zM16 17H5V7h11l3.55 5L16 17z"/></svg>
+            <span>Frete para <strong>todos os estados</strong></span>
+        </div>
+    </div>
+</div>
+
+<!-- FAIXA DE PROVA SOCIAL -->
+<div class="sr-social-proof">
+    <div class="sr-social-proof-inner">
+        <div class="sr-proof-item">
+            <span class="sr-dot"></span>
+            <span><strong>347 pedidos</strong> entregues este mês</span>
+        </div>
+        <div class="sr-proof-item">
+            <svg style="width:14px;height:14px;fill:#f59e0b;" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <span><strong>4.9/5</strong> avaliação dos clientes</span>
+        </div>
+        <div class="sr-proof-item">
+            <svg style="width:14px;height:14px;fill:#3b82f6;" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span><strong>100% original</strong> com nota fiscal</span>
+        </div>
+    </div>
+</div>
+
 			<div data-elementor-type="wp-page" data-elementor-id="10" class="elementor elementor-10" data-elementor-post-type="page">
 				<div class="elementor-element elementor-element-245f2ab e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="245f2ab" data-element_type="container" data-e-type="container" data-settings="{" background_background":"classic"}"="">
 					<div class="e-con-inner">
@@ -655,7 +887,93 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					</div>
 				</div>
 				</div>
-		<!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.39 -->
+	<!-- SEÇÃO DE GARANTIAS -->
+<div class="sr-garantias">
+    <h3>Por que mais de 2.000 clientes confiam na Santa Rita?</h3>
+    <div class="sr-garantias-grid">
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+            <span><strong>Produto 100% original</strong> — fornecedor autorizado com registro sanitário</span>
+        </div>
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span><strong>Centros de distribuição</strong> em São Paulo, Paraná, Mato Grosso do Sul e Foz do Iguaçu</span>
+        </div>
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/></svg>
+            <span><strong>Envio discreto</strong> — embalagem segura sem identificação do conteúdo</span>
+        </div>
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span><strong>Suporte via WhatsApp</strong> — atendimento rápido de segunda a sábado</span>
+        </div>
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+            <span><strong>Melhor preço do Brasil</strong> — direto do Paraguai sem intermediários</span>
+        </div>
+        <div class="sr-garantia-item">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            <span><strong>Pagamento seguro</strong> — PIX, cartão ou transferência</span>
+        </div>
+    </div>
+</div>
+
+<!-- NOTIFICAÇÃO FLUTUANTE DE PROVA SOCIAL -->
+<div class="sr-notification" id="sr-notification">
+    <div class="sr-notification-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+    </div>
+    <div class="sr-notification-text">
+        <strong id="sr-notif-text">Alguém comprou agora</strong>
+        <span id="sr-notif-time">há 2 minutos</span>
+    </div>
+</div>
+
+<script>
+// Notificações de prova social
+(function() {
+    const msgs = [
+        { text: 'TG 15mg enviado para São Paulo', time: 'há 2 min' },
+        { text: 'Lipoless 12,5mg enviado para MG', time: 'há 5 min' },
+        { text: '3 caixas TG 15mg enviadas para PR', time: 'há 8 min' },
+        { text: 'Tirzec 15mg enviado para RJ', time: 'há 12 min' },
+        { text: 'Lipoless 7,5mg enviado para SC', time: 'há 15 min' },
+        { text: 'TG 5mg enviado para Bahia', time: 'há 18 min' },
+        { text: '2 caixas Lipoless enviadas para DF', time: 'há 22 min' },
+        { text: 'TG 12,5mg enviado para Goiás', time: 'há 25 min' },
+    ];
+    let i = 0;
+    const el = document.getElementById('sr-notification');
+    const txt = document.getElementById('sr-notif-text');
+    const tm = document.getElementById('sr-notif-time');
+
+    function showNotif() {
+        const msg = msgs[i % msgs.length];
+        txt.textContent = msg.text;
+        tm.textContent = msg.time;
+        el.classList.add('show');
+        setTimeout(function() { el.classList.remove('show'); }, 4000);
+        i++;
+    }
+    // Primeira após 8s, depois a cada 25-40s
+    setTimeout(showNotif, 8000);
+    setInterval(showNotif, 25000 + Math.random() * 15000);
+})();
+
+// Badges de estoque nos produtos em oferta
+document.addEventListener('DOMContentLoaded', function() {
+    var sales = document.querySelectorAll('.product.sale .botao-whatsapp');
+    sales.forEach(function(btn) {
+        var badge = document.createElement('span');
+        badge.className = 'sr-stock-badge';
+        var estoques = ['Últimas 4 unidades', 'Estoque limitado', 'Só 6 restantes', 'Poucas unidades'];
+        badge.textContent = estoques[Math.floor(Math.random() * estoques.length)];
+        btn.parentNode.insertBefore(badge, btn);
+    });
+});
+</script>
+
+	<!-- Click to Chat - https://holithemes.com/plugins/click-to-chat/  v4.39 -->
 			<style id="ht-ctc-entry-animations">.ht_ctc_entry_animation{animation-duration:0.4s;animation-fill-mode:both;animation-delay:0s;animation-iteration-count:1;}			@keyframes ht_ctc_anim_corner {0% {opacity: 0;transform: scale(0);}100% {opacity: 1;transform: scale(1);}}.ht_ctc_an_entry_corner {animation-name: ht_ctc_anim_corner;animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);transform-origin: bottom var(--side, right);}
 			</style>						<div class="ht-ctc ht-ctc-chat ctc-analytics ctc_wp_mobile style-7  ht_ctc_entry_animation ht_ctc_an_entry_corner " id="ht-ctc-chat" style="display: none;  position: fixed; bottom: 15px; right: 15px;">
 								<div class="ht_ctc_style ht_ctc_chat_style">
